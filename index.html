@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, intial scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="Images/logo2.png" class="logo">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+                <img src="Images/times.png" class="fas fa-times" onclick="closemenu()"></i>
+            </ul>
+            <img src="Images/three.jpeg" class="fas fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <p>Software Engineer</p>
+            <h1>Hi, I'm <span>Elias</span> Sanchez<br>from Teaneck, NJ</h1>
+        </div>
+    </div>
+</div>
+<!-- ------------about----------- -->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="Images/Headshot.png">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Java</span></li>
+                        <li><span>Python</span></li>
+                        <li><span>JavaScript</span></li>
+                        <li><span>HTML</span></li>
+                        <li><span>CSS</span></li>
+                        <li><span>React</span></li>
+                        <li><span>Google Apps Script</span></li>
+                        <li><span>VS Code</span></li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>Rutgers, The State University of New Jersey</span><br>Expected graduation: May 2026<br>Major: Computer Science<br>Relevant Coursework: Intro to OOP using Java, Data Structures & Algorithms</li>
+                        <li><span>Fairleigh Dickinson University</span><br>Relevant Coursework: Computer Programming I (Python)</li>
+                        
+
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>No technical experience yet</span><br>Currently seeking software engineering internships</li>
+                        <li><span>Walgreens</span><br>December 2023 - Present<br><br> - Accurately perform cashier duties – handling cash, checks and credit card transactions<br> - Maintaining the sales floor by restocking shelves, checking in vendors, updating pricing information and completing inventory management tasks as directed by store manager<br> - Focusing on the customer by giving a warm and friendly greeting, maintaining eye contact and offering help locating additional items, when needed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>       
+    </div>
+</div>
+
+<!---------portfolio---------->
+<div id="portfolio">
+     <div class="container">
+        <h1 class="sub-title">My Work</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="Images/website.jpeg">
+                <div class="layer">
+                    <h3>Portfolio Website</h3>
+                    <p>This website that you're on was built using HTML, CSS, and Javascript and was made to present my technical skills.</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="Images/coming_soon.jpeg">
+                <div class="layer">
+                    <h3>Expenses Tracker</h3>
+                    <p>Currently working on a Java project, that will help me track my expenses, including monthly bills, to help me manage my money.</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">See more</a>
+     </div>
+</div>
+<!-----------Contact------------>
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><img src="Images/email.jpeg">eliasrsanchez173@gmail.com</p>
+                <p><img src="Images/phone.png">(201)926-5003</p>
+                <div class="social-icons">
+                    <a href="https://linkedin.com/in/elias-r-sanchez"><img src="Images/LinkedIn.png"></a>
+                </div>
+                <a href="Images/Elias_Sanchez.pdf" download class="btn">Download Resume</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+<script>
+    var sidemeu = document.getElementById("sidemenu");
+    function openmenu(){
+        sidemeu.style.right = "0";
+    }
+    function closemenu(){
+        sidemeu.style.right = "-200px";
+    }
+</script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbym4cWdAU9X5EG3UFzMa0ZuRHFwojB-DOF8tswT8xIoanst6TdJQGhezkT6YOlCly3zUA/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully!"
+             setTimeout(function(){
+                msg.innerHTML=""}, 5000)
+                 form.reset()
+                })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
